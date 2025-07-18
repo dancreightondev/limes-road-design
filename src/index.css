@@ -1,24 +1,38 @@
 @import 'tailwindcss';
-@reference "~/App.css";
+
+@theme {
+  /*
+  Tools for generating a design system:
+  - https://tints.dev/
+  - https://colorpicker.me/
+  - https://uicolors.app/
+  */
+
+  /* Primary colour scale */
+  --color-primary-50: #ecfbea;
+  --color-primary-100: #d9f7d4;
+  --color-primary-200: #b3eeaa;
+  --color-primary-300: #8de67f;
+  --color-primary-400: #68de54;
+  --color-primary-500: #44d62c;
+  --color-primary-600: #35ab21;
+  --color-primary-700: #278019;
+  --color-primary-800: #1a5511;
+  --color-primary-900: #0d2b08;
+  --color-primary-950: #071504;
+
+  /* Fonts */
+  --font-pirata: 'Pirata One', serif;
+  --font-kumar: 'Kumar One Outline', monospace;
+  --font-body: 'Pridi', 'Courier', monospace;
+}
 
 @layer base {
   #root {
     @apply h-full;
     @apply font-body;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    #root {
-      @apply bg-neutral-950;
-      @apply text-primary-50;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    #root {
-      @apply bg-neutral-50;
-      @apply text-primary-950;
-    }
+    @apply bg-black;
+    @apply text-white;
   }
 
   html,
