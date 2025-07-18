@@ -73,7 +73,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             id="logo-road"
             mode="single"
             max={1000}
-            className="font-pirata w-[min(66vw,66vh)] mx-auto leading-none -translate-y-[0.2em] uppercase text-black dark:text-white"
+            className="font-pirata w-[min(66dvw,66dvh)] mx-auto leading-none -translate-y-[0.2em] uppercase text-black dark:text-white"
             style={{ height: '1em' }}
           >
             Road
@@ -84,7 +84,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             id="logo-design"
             mode="single"
             max={1000}
-            className="font-kumar w-[min(60vw,60vh)] mx-auto leading-none -translate-y-[1.25em] uppercase text-neutral-500"
+            className="font-kumar w-[min(60dvw,60dvh)] mx-auto leading-none -translate-y-[1.25em] mb-4 uppercase text-neutral-500"
             style={{ height: '1em' }}
           >
             {'Design'.split('').map((char, i, arr) => (
@@ -107,16 +107,16 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
               className={twClassMerge(
                 // Responsive bottom offset: 8vh on all, 4vw on landscape (md and up)
                 'absolute left-1/2 transform -translate-x-1/2',
-                'bottom-[8vh] md:bottom-[2vw]'
+                'bottom-[4dvh]'
               )}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex gap-2 flex-col md:flex-row">
+              <div className="flex gap-2 flex-col sm:flex-row">
                 <span className="text-white mx-auto lowercase">Scroll</span>
-                <div className="flex flex-col items-center md:translate-y-[0.55em]">
+                <div className="flex flex-col items-center sm:translate-y-[0.55em]">
                   <motion.span
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', damping: 20 }}
