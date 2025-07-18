@@ -40,5 +40,7 @@
     @apply h-full;
     @apply select-none;
     @apply font-body;
+    @apply bg-black;
+    @apply text-white;
   }
 }
