@@ -47,7 +47,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             id="logo-limes"
             mode="single"
             max={1000}
-            className="font-pirata w-[66vh] mx-auto leading-none uppercase text-primary-500"
+            className="font-pirata w-[min(66vw,66vh)] mx-auto leading-none uppercase text-primary-500"
             style={{ height: '1em' }}
           >
             Limes
@@ -58,7 +58,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             id="logo-road"
             mode="single"
             max={1000}
-            className="font-pirata w-[66vh] mx-auto leading-none -translate-y-[0.2em] uppercase text-black dark:text-white"
+            className="font-pirata w-[min(66vw,66vh)] mx-auto leading-none -translate-y-[0.2em] uppercase text-black dark:text-white"
             style={{ height: '1em' }}
           >
             Road
@@ -69,7 +69,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             id="logo-design"
             mode="single"
             max={1000}
-            className="font-kumar w-[60vh] mx-auto leading-none uppercase text-neutral-500"
+            className="font-kumar w-[min(60vw,60vh)] mx-auto leading-none uppercase text-neutral-500"
             style={{ height: '1em' }}
           >
             {'Design'.split('').map((char, i, arr) => (
