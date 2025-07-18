@@ -39,7 +39,7 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
   if (!fontsLoaded) return null
 
   return (
-    <div id="landing" className={twClassMerge(className, 'size-full')} {...props}>
+    <div id="landing" className={twClassMerge(className, 'size-full overflow-hidden')} {...props}>
       <span className="sr-only">Limes Road Design</span>
       <div
         className={twClassMerge(
