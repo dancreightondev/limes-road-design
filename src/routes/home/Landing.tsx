@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react'
 import { twClassMerge } from '~/utils/tailwind'
 import { Textfit } from '@ataverascrespo/react18-ts-textfit'
 import { motion, AnimatePresence } from 'motion/react'
-import { RiArrowDownWideFill } from 'react-icons/ri'
+import { HiOutlineChevronDoubleDown } from 'react-icons/hi'
 
 interface LandingProps extends React.HTMLAttributes<HTMLDivElement> {
   // Custom props go here
@@ -116,24 +116,12 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             >
               <div className="flex gap-2 flex-col sm:flex-row">
                 <span className="text-white mx-auto lowercase">Scroll</span>
-                <div className="flex flex-col items-center sm:translate-y-[0.55em]">
+                <div className="flex flex-col items-center sm:translate-y-[0.3em]">
                   <motion.span
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'easeOut', damping: 20 }}
                   >
-                    <RiArrowDownWideFill />
-                  </motion.span>
-                  <motion.span
-                    animate={{ y: [-22, -27, -22] }}
-                    transition={{
-                      delay: 0.05,
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeOut',
-                      damping: 20
-                    }}
-                  >
-                    <RiArrowDownWideFill />
+                    <HiOutlineChevronDoubleDown />
                   </motion.span>
                 </div>
               </div>
