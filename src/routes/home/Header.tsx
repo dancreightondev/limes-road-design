@@ -33,7 +33,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       >
         <RiFacebookFill className="size-full" />
       </a>
-      <img src="https://placehold.co/128" alt="Logo" id="site-logo" className="h-16 w-auto" />
+      <img src="/lrd-logo-placeholder.png" alt="Logo" id="site-logo" className="h-16 w-auto" />
       <a
         className="h-8 w-auto text-neutral-500 hover:text-primary-500 transition-colors"
         href="https://tiktok.com/@limesroad.design"
