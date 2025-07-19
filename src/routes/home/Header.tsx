@@ -26,19 +26,15 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
         <RiInstagramLine className="size-full" />
       </a>
       <a
-        className="h-8 w-auto text-neutral-500 hover:text-primary-500 transition-colors"
-        href="https://facebook.com/limesroad.design"
-        target="_blank"
-        rel="noopener noreferrer"
+        className="h-8 w-auto text-neutral-800 hover:cursor-not-allowed transition-colors"
+        aria-disabled="true"
       >
         <RiFacebookFill className="size-full" />
       </a>
       <img src="/lrd-logo-placeholder.png" alt="Logo" id="site-logo" className="h-16 w-auto" />
       <a
-        className="h-8 w-auto text-neutral-500 hover:text-primary-500 transition-colors"
-        href="https://tiktok.com/@limesroad.design"
-        target="_blank"
-        rel="noopener noreferrer"
+        className="h-8 w-auto text-neutral-800 hover:cursor-not-allowed transition-colors"
+        aria-disabled="true"
       >
         <RiTiktokFill className="size-full" />
       </a>
