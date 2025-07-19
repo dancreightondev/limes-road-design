@@ -42,5 +42,10 @@
     @apply font-body;
     @apply bg-black;
     @apply text-white;
+    @apply no-scrollbar;
   }
+}
+
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none];
 }

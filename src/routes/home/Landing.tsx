@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { FC, useEffect, useState } from 'react'
 import { twClassMerge } from '~/utils/tailwind'
 import { Textfit } from '@ataverascrespo/react18-ts-textfit'
@@ -6,14 +5,16 @@ import { motion, AnimatePresence } from 'motion/react'
 import { HiOutlineChevronDoubleDown } from 'react-icons/hi'
 
 interface LandingProps extends React.HTMLAttributes<HTMLDivElement> {
-  // Custom props go here
+  onDone?: () => void
 }
 
-export const Landing: FC<LandingProps> = ({ className, ...props }) => {
+export const Landing: FC<LandingProps> = ({ className, onDone, ...props }) => {
   const [fontsLoaded, setFontsLoaded] = useState(false)
   const [rerenderKey, setRerenderKey] = useState(0)
   const [hasRerendered, setHasRerendered] = useState(false)
   const [showScrollTip, setShowScrollTip] = useState(false)
+  const [isSticky, setIsSticky] = useState(true)
+  const [isFadingOut, setIsFadingOut] = useState(false)
 
   useEffect(() => {
     if (document.fonts) {
@@ -33,13 +34,42 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
     }
     // Show scroll tip after 2 seconds
     const tipTimeout = setTimeout(() => setShowScrollTip(true), 2000)
-    return () => clearTimeout(tipTimeout)
-  }, [])
+
+    // Listen for scroll to trigger fade out
+    let hasFaded = false
+    const handleScroll = () => {
+      if (!hasFaded && window.scrollY > 0) {
+        hasFaded = true
+        setIsFadingOut(true)
+        setShowScrollTip(false)
+        setTimeout(() => {
+          setIsSticky(false)
+          if (onDone) onDone()
+        }, 700) // match fade duration
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      clearTimeout(tipTimeout)
+      window.removeEventListener('scroll', handleScroll)
+      document.body.classList.remove('overflow-hidden')
+    }
+  }, [onDone, isSticky])
 
   if (!fontsLoaded) return null
 
   return (
-    <div id="landing" className={twClassMerge(className, 'size-full overflow-hidden')} {...props}>
+    <div
+      id="landing"
+      className={twClassMerge(
+        className,
+        isSticky ? 'fixed inset-0 z-50 overflow-hidden h-screen' : 'relative h-0',
+        'transition-opacity duration-700',
+        isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      )}
+      {...props}
+    >
       <span className="sr-only">Limes Road Design</span>
       <div
         className={twClassMerge(
@@ -105,7 +135,6 @@ export const Landing: FC<LandingProps> = ({ className, ...props }) => {
             <motion.div
               id="scroll-tip"
               className={twClassMerge(
-                // Responsive bottom offset: 8vh on all, 4vw on landscape (md and up)
                 'absolute left-1/2 transform -translate-x-1/2',
                 'bottom-[4dvh]'
               )}
