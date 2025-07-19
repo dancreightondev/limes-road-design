@@ -64,7 +64,7 @@ export const Landing: FC<LandingProps> = ({ className, onDone, ...props }) => {
       id="landing"
       className={twClassMerge(
         className,
-        isSticky ? 'fixed inset-0 z-50 overflow-hidden h-screen' : 'relative h-0',
+        isSticky ? 'fixed inset-0 z-50 overflow-hidden h-[100dvh]' : 'relative h-0',
         'transition-opacity duration-700',
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       )}
@@ -136,8 +136,13 @@ export const Landing: FC<LandingProps> = ({ className, onDone, ...props }) => {
               id="scroll-tip"
               className={twClassMerge(
                 'absolute left-1/2 transform -translate-x-1/2',
-                'bottom-[4dvh]'
+                'bottom-8 sm:bottom-4',
+                'pb-[env(safe-area-inset-bottom)]'
               )}
+              style={{
+                // fallback for browsers that don't support env()
+                paddingBottom: 'env(safe-area-inset-bottom, 0px)'
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
