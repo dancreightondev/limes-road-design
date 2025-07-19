@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { twClassMerge } from '~/utils/tailwind'
 import { Landing } from './home/Landing'
 import { Header } from './home/Header'
+import { Footer } from './home/Footer'
 
 interface HomeRouteProps extends React.HTMLAttributes<HTMLDivElement> {
   // Custom props go here
@@ -82,6 +83,7 @@ export const HomeRoute: FC<HomeRouteProps> = ({ className, ...props }) => {
               mollit anim id est laborum.
             </p>
           </div>
+          <Footer />
         </motion.section>
       )}
     </div>
