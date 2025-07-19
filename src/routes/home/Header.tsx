@@ -13,7 +13,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
       id="header"
       className={twClassMerge(
         className,
-        'w-full max-w-lg mx-auto p-4 flex flex-row items-center justify-between'
+        'w-full max-w-lg mx-auto p-4 pt-8 flex flex-row items-center justify-between'
       )}
       {...props}
     >
