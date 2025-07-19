@@ -3,6 +3,7 @@ import { FC, useState } from 'react'
 import { motion } from 'motion/react'
 import { twClassMerge } from '~/utils/tailwind'
 import { Landing } from './home/Landing'
+import { Header } from './home/Header'
 
 interface HomeRouteProps extends React.HTMLAttributes<HTMLDivElement> {
   // Custom props go here
@@ -34,7 +35,11 @@ export const HomeRoute: FC<HomeRouteProps> = ({ className, ...props }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <div className="flex flex-col items-center justify-center p-20 space-y-8 max-w-4xl mx-auto">
+          <Header />
+          <div
+            id="site-content"
+            className="flex flex-col items-center justify-center p-20 space-y-8 max-w-4xl mx-auto"
+          >
             <h2 className="text-4xl">Site content</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
