@@ -35,25 +35,35 @@ export const Landing: FC<LandingProps> = ({ className, onDone, ...props }) => {
     // Show scroll tip after 2 seconds
     const tipTimeout = setTimeout(() => setShowScrollTip(true), 2000)
 
-    // Listen for scroll to trigger fade out
+    // Prevent scroll/touch from scrolling content while landing is sticky
     let hasFaded = false
-    const handleScroll = () => {
-      if (!hasFaded && window.scrollY > 0) {
+    const triggerFade = (e?: Event) => {
+      if (e) e.preventDefault()
+      if (!hasFaded) {
         hasFaded = true
         setIsFadingOut(true)
         setShowScrollTip(false)
         setTimeout(() => {
           setIsSticky(false)
+          document.body.classList.remove('overflow-hidden')
           if (onDone) onDone()
-        }, 700) // match fade duration
+        }, 700)
       }
     }
-    window.addEventListener('scroll', handleScroll)
+    if (isSticky) {
+      document.body.classList.add('overflow-hidden')
+      window.addEventListener('wheel', triggerFade, { passive: false })
+      window.addEventListener('touchstart', triggerFade, { passive: false })
+      window.addEventListener('touchmove', triggerFade, { passive: false })
+    }
 
     return () => {
       clearTimeout(tipTimeout)
-      window.removeEventListener('scroll', handleScroll)
-      document.body.classList.remove('overflow-hidden')
+      window.removeEventListener('wheel', triggerFade)
+      window.removeEventListener('touchstart', triggerFade)
+      window.removeEventListener('touchmove', triggerFade)
+      // Only remove overflow-hidden if landing is not sticky (e.g. on unmount)
+      if (!isSticky) document.body.classList.remove('overflow-hidden')
     }
   }, [onDone, isSticky])
 
