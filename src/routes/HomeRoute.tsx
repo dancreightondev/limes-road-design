@@ -54,7 +54,13 @@ export const HomeRoute: FC<HomeRouteProps> = ({ className, ...props }) => {
               </span>
             </div>
           </div>
-          <Footer className="mt-auto" />
+          <Footer
+            className="mt-auto pb-[env(safe-area-inset-bottom)]"
+            style={{
+              // fallback for browsers that don't support env()
+              paddingBottom: 'env(safe-area-inset-bottom, 0px)'
+            }}
+          />
         </motion.section>
       )}
     </div>
