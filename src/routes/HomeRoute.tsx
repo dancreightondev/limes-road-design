@@ -41,7 +41,18 @@ export const HomeRoute: FC<HomeRouteProps> = ({ className, ...props }) => {
             id="site-content"
             className="flex flex-col items-center justify-center p-20 space-y-8 max-w-4xl mx-auto flex-1"
           >
-            <div className="text-neutral-400">check back later</div>
+            <div className="flex flex-col text-neutral-400 text-center">
+              <span>want your site here?</span>
+              <span>
+                email{' '}
+                <a
+                  className="text-neutral-300 hover:text-primary-500"
+                  href="mailto:dan@limesroad.design"
+                >
+                  dan@limesroad.design
+                </a>
+              </span>
+            </div>
           </div>
           <Footer className="mt-auto" />
         </motion.section>
