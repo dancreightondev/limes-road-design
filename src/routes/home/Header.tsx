@@ -26,8 +26,10 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
         <RiInstagramLine className="size-full" />
       </a>
       <a
-        className="h-8 w-auto text-neutral-800 hover:cursor-not-allowed transition-colors"
-        aria-disabled="true"
+        className="h-8 w-auto text-neutral-500 hover:text-primary-500 transition-colors"
+        href="https://facebook.com/limesroad.design"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <RiFacebookFill className="size-full" />
       </a>
