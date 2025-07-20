@@ -10,8 +10,8 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
   return (
     <div id="footer" className={twClassMerge(className)} {...props}>
       {/* Component content goes here */}
-      <div className="text-center p-8 text-sm text-neutral-500 flex flex-col items-center space-y-2">
-        <span id="copyright">
+      <div className="text-center p-8 text-sm text-neutral-500 flex flex-col items-center">
+        <span id="copyright" className="mb-2">
           &copy; {new Date().getFullYear()} limes road design - all rights reserved
         </span>
         <span id="notice">no data is collected on this site</span>
