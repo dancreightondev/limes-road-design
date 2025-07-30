@@ -11,20 +11,21 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
     <div id="footer" className={twClassMerge(className)} {...props}>
       {/* Component content goes here */}
       <div className="text-center p-8 text-sm text-neutral-500 flex flex-col items-center">
-        <span id="copyright" className="mb-2">
-          &copy; {new Date().getFullYear()} limes road design - all rights reserved
-        </span>
-        <span id="notice">no data is collected on this site</span>
+        <span id="notice">No data is collected on this site</span>
         <span id="source-code">
-          source code available on{' '}
+          Source code available on{' '}
           <a
             href="https://github.com/dancreightondev/limes-road-design"
             className="text-neutral-400 hover:text-primary-500"
             target="_blank"
             rel="noopener noreferrer"
           >
-            github
+            GitHub
           </a>
+        </span>
+        <span id="copyright" className="mt-2">
+          Copyright &copy; {new Date().getFullYear()} Limes Road Design and its licensors. All
+          rights reserved.
         </span>
       </div>
     </div>
